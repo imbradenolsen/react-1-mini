@@ -11,16 +11,34 @@ class App extends Component {
       name: '',
     }
   }
+
+  updatePicture(value){
+    this.setState({
+      picture: value,
+    })
+  }
+
+  updateName(value){
+    this.setState({
+      name: value,
+    })
+  }
+
+
   render() {
     return (
       <div>
         Picture:
-        <input />
+        <input onChange={event => this.updatePicture(event.target.value)} value={this.state.picture} />
 
         Name:
-        <input />
+        <input onChange ={event => this.updateName(event.target.value)} value={this.state.name}/>
 
         <button>Add Friend</button>
+
+        <div>
+          State: {JSON.stringify(this.state)}
+        </div>
       </div>
     );
   }
